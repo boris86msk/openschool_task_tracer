@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-@Table(name = "method_log")
+@Table(name = "tasks")
 @NoArgsConstructor
 public class Task {
     @Id
@@ -19,7 +19,8 @@ public class Task {
 
     private String description;
 
+    @Column(name = "due_date")
     private LocalDateTime dueDate;
 
-    private LocalDateTime completed;
+    private boolean completed;
 }
