@@ -2,6 +2,7 @@ package ru.openschool_task_tracer.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
@@ -10,11 +11,14 @@ import java.time.LocalDateTime;
 @Data
 @Table(name = "tasks")
 @NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Task {
     @Id
+    @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @EqualsAndHashCode.Include
     private String title;
 
     private String description;
