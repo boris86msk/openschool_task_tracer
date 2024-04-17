@@ -1,9 +1,7 @@
 package ru.openschool_task_tracer.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -11,6 +9,7 @@ import java.time.LocalDateTime;
 @Data
 @Table(name = "tasks")
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Task {
     @Id
@@ -27,4 +26,13 @@ public class Task {
     private LocalDateTime dueDate;
 
     private boolean completed;
+
+    /**
+     * constructor for tests
+     */
+    public Task(String someTitle, String someDescription, LocalDateTime date) {
+        this.title = someTitle;
+        this.description = someDescription;
+        this.dueDate = date;
+    }
 }
